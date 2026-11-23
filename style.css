@@ -1,0 +1,454 @@
+:root {
+  --alabaster: #faf8f4;
+  --travertine: #f2ede4;
+  --glass: rgba(255, 253, 249, 0.78);
+  --glass-strong: rgba(255, 253, 249, 0.92);
+  --ink: #222825;
+  --muted: #616b66;
+  --sage: #7a8d7e;
+  --sage-deep: #5c7061;
+  --sage-soft: #eef2ee;
+  --champagne: #b08d57;
+  --champagne-hover: #9a7946;
+  --champagne-soft: #f7f1e6;
+  --hairline: rgba(34, 40, 37, 0.08);
+  --shadow-ambient: 0 20px 50px -15px rgba(45, 38, 28, 0.07), 0 4px 16px -4px rgba(45, 38, 28, 0.04);
+  --shadow-float: 0 28px 60px -15px rgba(45, 38, 28, 0.11), 0 8px 24px -6px rgba(45, 38, 28, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background-color: var(--alabaster);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 15% 5%, rgba(235, 226, 211, 0.65) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 88% 25%, rgba(226, 234, 227, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 60% at 50% 85%, rgba(238, 231, 219, 0.5) 0%, transparent 65%);
+  background-attachment: fixed;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: "Fraunces", serif;
+  letter-spacing: -0.02em;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+/* Floating Glass Header */
+.glass-header {
+  background: var(--glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 35px -10px rgba(34, 40, 37, 0.06);
+  border-radius: 9999px;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Top Staff Bar */
+.role-nav {
+  background: #1f2623;
+  color: #f8f6f2;
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-size: 0.82rem;
+}
+
+.role-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.role-links a {
+  background: rgba(255, 255, 255, 0.08);
+  color: #d6dcd8;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.role-links a:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.role-links a.active {
+  background: var(--champagne);
+  color: #fff;
+}
+
+/* Editorial Eyebrow */
+.eyebrow {
+  color: var(--champagne);
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Concept 1 Sleek Pill Buttons (Zero harsh borders or offset shadows) */
+.primary-button {
+  background: linear-gradient(135deg, #b8955e 0%, #9e7c47 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 1.65rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 24px -6px rgba(158, 124, 71, 0.42);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, filter 0.28s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -6px rgba(158, 124, 71, 0.52);
+  filter: brightness(1.04);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+.btn-outline,
+.secondary-pill {
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  border: 1px solid rgba(34, 40, 37, 0.12);
+  border-radius: 9999px;
+  padding: 0.72rem 1.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(34, 40, 37, 0.03);
+  transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-outline:hover,
+.secondary-pill:hover {
+  background: #ffffff;
+  border-color: var(--champagne);
+  color: var(--champagne-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(34, 40, 37, 0.09);
+}
+
+/* 3D Frosted Glass & Architectural Surfaces */
+.soft-card,
+.glass-panel {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: var(--shadow-ambient);
+  border-radius: 1.5rem;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.soft-card:hover {
+  box-shadow: var(--shadow-float);
+  border-color: rgba(176, 141, 87, 0.28);
+}
+
+/* 3D Interactive Tilt Surface */
+.tilt-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 3D Floating Hero Collage Frame */
+.hero-collage-frame {
+  border-radius: 1.75rem;
+  background: var(--glass-strong);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-float);
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-collage-frame:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Scroll-Triggered Smooth Reveal Animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Forms */
+.form-control {
+  width: 100%;
+  border: 1px solid rgba(34, 40, 37, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  padding: 0.85rem 1.05rem;
+  color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: var(--champagne);
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(176, 141, 87, 0.15);
+}
+
+/* Portal Cards & Tables (Staff Dashboards) */
+.portal-card {
+  background: var(--glass-strong);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 1.5rem;
+  padding: 32px;
+  box-shadow: var(--shadow-ambient);
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+table th, table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+
+table th {
+  background: var(--travertine);
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge-pending { background: #fdf3dc; color: #8c6218; }
+.badge-confirmed { background: #e6f2ea; color: #2d5a3f; }
+.badge-completed { background: #e8eef8; color: #2b4c7e; }
+.badge-cancelled { background: #fbe9e7; color: #9e2a22; }
+
+.btn-main {
+  background: var(--champagne);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-danger {
+  background: #fbe9e7;
+  color: #9e2a22;
+  border: 1px solid rgba(158, 42, 34, 0.2);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+  background: #f6d5d1;
+}
+
+/* Prescription Builder & Admin */
+.rx-builder {
+  background: var(--alabaster);
+  border: 1px solid var(--hairline);
+  border-radius: 1rem;
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.rx-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  background: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.rx-table th {
+  background: var(--travertine);
+  font-size: 0.75rem;
+  padding: 8px;
+}
+
+.rx-table td {
+  padding: 5px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.rx-input {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(34, 40, 37, 0.14);
+  border-radius: 0.6rem;
+  background: #fff;
+}
+
+.btn-del-row {
+  background: #fbe9e7;
+  color: #9e2a22;
+  border: none;
+  padding: 4px 9px;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+/* Modals */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 33, 30, 0.45);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fffdf9;
+  padding: 36px;
+  border-radius: 1.75rem;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 32px 70px -15px rgba(28, 33, 30, 0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: var(--travertine);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #e6dfd3;
+}
+
+/* Toast */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: #222825;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 9999px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+  animation: rise 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.toast.success { background: #2d4a3e; }
+.toast.error { background: #9e2a22; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Category Tab Active State (Concept 1 Sage Pill) */
+.category-tab-btn.active {
+  background: linear-gradient(135deg, #839787 0%, #6a7e6e 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 20px -5px rgba(106, 126, 110, 0.45);
+}
+
+/* Print Prescription Template */
+#printPrescriptionArea { display: none; }
+@media print {
+  body * { visibility: hidden; }
+  #printPrescriptionArea, #printPrescriptionArea * { visibility: visible; }
+  #printPrescriptionArea { display: block !important; position: absolute; left: 0; top: 0; width: 100%; padding: 40px; background: #fff; font-family: "DM Sans", sans-serif; color: #111; }
+  .rx-print-header { border-bottom: 2px solid #284d43; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; }
+  .rx-print-header h1 { font-family: "Fraunces", serif; font-size: 1.8rem; color: #284d43; }
+  .rx-patient-info { display: grid; grid-template-columns: repeat(4, 1fr); background: #f4f6f4; padding: 12px; border: 1px solid #d8ded5; margin-bottom: 24px; font-size: 0.9rem; }
+  .rx-table-print { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+  .rx-table-print th, .rx-table-print td { border: 1px solid #d8ded5; padding: 10px; font-size: 0.9rem; text-align: left; }
+  .rx-table-print th { background: #f4f6f4; }
+}
